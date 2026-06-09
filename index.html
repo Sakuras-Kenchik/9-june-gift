@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Для моей любимой ❤️</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        overflow: hidden;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+    }
+
+    .container {
+        z-index: 2;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 15px;
+        animation: glow 2s infinite alternate;
+    }
+
+    p {
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+    }
+
+    button {
+        padding: 15px 30px;
+        border: none;
+        border-radius: 50px;
+        background: white;
+        color: #ff4f81;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.08);
+    }
+
+    .message {
+        margin-top: 25px;
+        font-size: 1.4rem;
+        opacity: 0;
+        transition: 1s;
+    }
+
+    .show {
+        opacity: 1;
+    }
+
+    .heart {
+        position: absolute;
+        color: rgba(255,255,255,0.8);
+        animation: float linear infinite;
+    }
+
+    @keyframes float {
+        from {
+            transform: translateY(100vh);
+        }
+        to {
+            transform: translateY(-100px);
+        }
+    }
+
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 10px white;
+        }
+        to {
+            text-shadow: 0 0 25px white;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>❤️ Для моей любимой ❤️</h1>
+
+    <p>
+        Каждый день рядом с тобой становится особенным.
+        Спасибо за твою улыбку, доброту и тепло.
+    </p>
+
+    <button onclick="showMessage()">Нажми сюда ✨</button>
+
+    <div id="secret" class="message">
+        Ты — самое прекрасное, что случилось в моей жизни 💖<br>
+        Улыбнись, ведь сегодня этот сайт создан только для тебя 🌹
+    </div>
+</div>
+
+<script>
+function showMessage() {
+    document.getElementById('secret').classList.add('show');
+}
+
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = '❤';
+
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+    heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
+}
+
+setInterval(createHeart, 250);
+</script>
+
+</body>
+</html>
